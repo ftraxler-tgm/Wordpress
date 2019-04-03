@@ -33,6 +33,7 @@ add_filter( 'screenr_content_text', 'shortcode_unautop', 16 );
 add_filter( 'screenr_content_text', 'do_shortcode', 17 );
 add_filter( 'screenr_content_text', 'capital_P_dangit', 18 );
 
+global $page;
 /**
  * Get site layout
  *
@@ -798,6 +799,25 @@ function screenr_page_header_cover() {
 	$swiper_wrapper_classes = apply_filters( 'screenr_page_header_cover_swiper_wrapper_class', array() );
 
 	?>
+
+
+	<?php 
+	
+	
+			/*/if(wp_kses_post( $item['title'] == "The Blog"){
+				$page=is_front_page() ? "Willkomen auf der Webseite des TGM" :wp_title() 
+			} else {
+				code to be executed if condition is false;
+			} 
+				$pagewp_kses_post( $item['title'];
+			}*/
+
+		#$page=is_front_page() ? wp_kses_post( $item['title']:"wea";
+			
+			
+			
+			
+		?>
 	<section id="page-header-cover" class="<?php echo esc_attr( join( ' ', $classes ) ); ?>" >
 		<div class="swiper-container" data-autoplay="0">
 			<div class="swiper-wrapper <?php echo esc_attr( implode( ' ', $swiper_wrapper_classes ) ); ?>">
@@ -822,7 +842,12 @@ function screenr_page_header_cover() {
 				$html .= '<div class="swiper-slide-intro">';
 				$html .= '<div class="swiper-intro-inner"' . $style . '>';
 				if ( $item['title'] ) {
-					$html .= '<h2 class="swiper-slide-heading">' . wp_kses_post( $item['title'] ) . '</h2>';
+					if(is_front_page()){
+						$html .= '<h2 class="swiper-slide-heading">Willkommen auf der Webseite des TGM </h2>';
+					}else{
+						$html .= '<h2 class="swiper-slide-heading">'.  wp_kses_post( $item['title']).'</h2>';
+					}
+					
 				}
 				if ( $item['desc'] ) {
 					$html .= '<div class="swiper-slide-desc">' . apply_filters( 'screenr_content_text', $item['desc'] ) . '</div>';
