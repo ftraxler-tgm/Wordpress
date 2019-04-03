@@ -65,6 +65,10 @@ if ( ! function_exists( 'screenr_posted_on' ) ) :
  */
 function screenr_posted_on( $echo = true ) {
     $html = $posted_on = $byline = $cat = $comment = '';
+
+
+    //Date
+    /*
     if ( get_theme_mod( 'show_post_date', 1 ) ) {
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
         $time_string = sprintf($time_string,
@@ -76,7 +80,7 @@ function screenr_posted_on( $echo = true ) {
 
         $posted_on =  '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-    }
+    }*/
 
     // show_post_author
     /*
