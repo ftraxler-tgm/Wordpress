@@ -724,9 +724,11 @@ function screenr_page_header_cover() {
 
 	$image = $title = $desc = '';
 
+
+
 	if ( is_singular() && ! is_attachment() ) {
 		if ( is_single() ) {
-			$title = esc_html( get_theme_mod( 'page_blog_title', esc_html__( 'The Blog', 'screenr' ) ) );
+			$title = esc_html( get_theme_mod( 'page_blog_title', esc_html__(  get_the_title(), 'screenr' ) ) );
 		} else {
 			$title = get_the_title();
 		}
