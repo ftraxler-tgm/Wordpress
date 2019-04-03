@@ -79,6 +79,7 @@ function screenr_posted_on( $echo = true ) {
     }
 
     // show_post_author
+    /*
     if ( get_theme_mod( 'show_post_author', 1 ) ) {
         $byline = sprintf(
             esc_html_x('Author: %s', 'post author', 'screenr'),
@@ -86,6 +87,9 @@ function screenr_posted_on( $echo = true ) {
         );
     }
 
+    */
+    //show_post_category
+    /*
     if ( get_theme_mod( 'show_post_cate', 1 ) ) {
         $category = get_the_category();
         if ($category[0]) {
@@ -95,6 +99,8 @@ function screenr_posted_on( $echo = true ) {
             );
         }
     }
+    */
+
 
     if ( get_post_meta( 'show_post_comment', 1 ) ) {
         if (!post_password_required() && (comments_open() || get_comments_number())) {
